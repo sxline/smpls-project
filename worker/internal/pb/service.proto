@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "worker/internal/pb";
+
+message Data {
+    string _id = 1;
+
+    message Categories {
+        string subcategory = 1;
+    }
+    Categories categories = 2;
+
+    message Title {
+        string ro = 1;
+        string ru = 2;
+    }
+    Title title = 3;
+
+    string type = 4;
+    double posted = 5;
+}
+
+service WriteDataService {
+    rpc Write(Data) returns (google.protobuf.Empty);
+}
+

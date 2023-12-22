@@ -1,0 +1,27 @@
+[
+ {
+  "_id": "1",
+  "categories": {
+   "subcategory": "test1"
+  },
+  "title": {
+   "ro": "ro_test1",
+   "ru": "ru_test1"
+  },
+  "type": "standard_test",
+  "posted": 1486556302.101039
+ },
+ {
+  "_id": "2",
+  "categories": {
+   "subcategory": "test2"
+  },
+  "title": {
+   "ro": "ro_test2",
+   "ru": "ru_test2"
+  },
+  "type": "standard_test",
+  "posted": 1488274575.697526
+ }
+]
+
