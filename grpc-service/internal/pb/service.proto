@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "grpc-service/internal/pb";
+
+message Data {
+  string _id = 1;
+
+  message Categories {
+    string subcategory = 1;
+  }
+  Categories categories = 2;
+
+  message Title {
+    string ro = 1;
+    string ru = 2;
+  }
+  Title title = 3;
+
+  string type = 4;
+  double posted = 5;
+}
+
+service WriteDataService {
+  rpc Write(Data) returns (google.protobuf.Empty);
+}
+
+
+message GetAllDataRequest {
+  string text = 1;
+  int32 from = 2;
+  int32 size = 3;
+}
+
+message GetAllDataResponse {
+  repeated Data data = 1;
+  int32 total = 2;
+}
+
+message StatisticResponse {
+  map<string, int32> categories = 1;
+}
+
+service ReadDataService {
+  rpc GetAllData(GetAllDataRequest) returns (GetAllDataResponse);
+  rpc GetStatistic(google.protobuf.Empty) returns (StatisticResponse);
+}
+
